@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {Note} from "./Note";
 import {NewNote} from "./NewNote";
+import {BrowserRouter} from "react-router-dom";
 
 const URI_COLLECTION = "https://docent.cmi.hro.nl/bootb/demo/notes"
 
@@ -23,9 +24,9 @@ export function App() {
 
     useEffect(loadJson, [])
 
-    return <div>
-        <h1>Hello Notes!</h1>
+    return <BrowserRouter>
+        <h1>Notes - Example</h1>
       {showNotes}
       <NewNote notesRefreshHandler={loadJson}/>
-    </div>;
+    </BrowserRouter>;
 }
