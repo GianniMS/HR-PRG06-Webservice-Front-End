@@ -1,5 +1,7 @@
 // Imports
-import { useState } from "react";
+import {useState} from "react";
+import {Link} from "react-router-dom";
+import "./App.css";
 
 export function Note(props) {
     const [note, setNote] = useState(props.note);
@@ -24,7 +26,7 @@ export function Note(props) {
             body: JSON.stringify(note)
         })
             .then((response) => {
-                if(response.ok){
+                if (response.ok) {
                     setIsEditing(false);
                     props.notesRefreshHandler();
                 }
@@ -59,16 +61,19 @@ export function Note(props) {
                 <form>
                     <input type="text" value={note.title} name="title" onChange={handleChange}/><br/>
                     <input type="text" value={note.body} name="body" onChange={handleChange}/><br/>
-                    <input type="text"  value={note.author} name="author" onChange={handleChange}/><br/>
+                    <input type="text" value={note.author} name="author" placeholder="confirm the author"
+                           onChange={handleChange}/><br/>
                     <button onClick={handleSave}>SAVE</button>
                     <button onClick={handleCancel}>CANCEL</button>
                 </form>
             ) : (
-                <>
-                    <h2>{note.title}</h2>
-                    <button onClick={handleEdit}>EDIT</button><br/>
+                <div class="note">
+                    <h2 class="noteTitle">{note.title}</h2>
+                    <Link to={"notes/" + props.note.id}>Read more</Link><br/>
+                    <button onClick={handleEdit}>EDIT</button>
+                    <br/>
                     <button onClick={deleteNote}>DELETE</button>
-                </>
+                </div>
             )}
         </section>
     );
