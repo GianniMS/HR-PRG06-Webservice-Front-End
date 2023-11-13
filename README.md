@@ -1,6 +1,5 @@
-# Hogeschool Rotterdam PRG06 Webservice-Front-End
-The front-end code for my programming 06 project. 
-The base of a restful webservice using Javascript.
+# Webservice-Front-End | CMGT Hogeschool Rotterdam 
+This is the front-end code for my restful webservice using Javascript and React. I made this for my studies at CMGT Hogeschool Rotterdam
 
-Feel free to take a look!
-- GMS
+Take a look!
+- GianniMS
